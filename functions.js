@@ -154,6 +154,8 @@ function frankenSplice(arr1, arr2, n) {
 }
 
 // FALSY BOUNCER
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
 function bouncer(arr) {
    let result = arr.filter(Boolean); // filters through given array and removes all false values
    return result;
@@ -161,19 +163,17 @@ function bouncer(arr) {
 
 // WHERE DO I BELONG
 function getIndexToIns(arr, num) {
+   // sort array
+   // the returned value should be the index#
+   // push num into array, sort array, find index of pushed num, return index
+   // https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677
+   arr.push(num); // push num into array
    arr.sort(function (a, b) {
-      // sorts the array in numerical order. without function sort will only sort alphabetically
+      // sorts the array numerically
       return a - b;
    });
-
-   for (let i = 0; i < arr.length; i++) {
-      // loop through array
-      if (num <= arr[i]) {
-         // if the input number is less than or equal to the number at the current index, return the index number
-         return i;
-      }
-   }
-   return arr.length; // if the number is greater than any number in the array, return the array length
+   //   console.log(arr)
+   return arr.indexOf(num); // finds the index value of num and returns it
 }
 
 // MUTATIONS
@@ -190,11 +190,14 @@ function mutation(word1, word2) {
    return true;
 }
 
-// CHUNKY MONKEY -- NEED WORK --
+// CHUNKY MONKEY
 function separateArrayInGroups(arr, size) {
-   let result = [];
-   for (let i = 0; i < arr.length; i += size) {
-      result.push(arr.slice(i, i + size));
+   let newArr = []; // create an empty array to push results into
+   while (arr.length > 0) {
+      // loop through array, while the length of the array is > 0,
+      newArr.push(arr.splice(0, size)); // splice the current array at the 0 index, in the amount of given size, then push spliced arr into newArr.
+      // keep running until while loop ends
    }
-   return result;
+   console.log(newArr);
+   return newArr;
 }
