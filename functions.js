@@ -199,15 +199,3 @@ function mutation(word1, word2) {
    }
    return true;
 }
-
-// CHUNKY MONKEY
-function separateArrayInGroups(arr, size) {
-   let newArr = []; // create an empty array to push results into
-   while (arr.length > 0) {
-      // loop through array, while the length of the array is > 0,
-      newArr.push(arr.splice(0, size)); // splice the current array at the 0 index, in the amount of given size, then push spliced arr into newArr.
-      // keep running until while loop ends
-   }
-   console.log(newArr);
-   return newArr;
-}
