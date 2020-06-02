@@ -44,16 +44,19 @@ function findLongestWordLength(str) {
    return maxLength;
 }
 
-// RETURN LARGEST NUMBER IN ARRAY ----!!!!!!!!!!! NEEDS WORK!!!!!!!!!!! -----
-function findLargestNumber(nums) {
-   let arrayOfNums = [nums];
-   for (var i = 0; i < arrayOfNums.length; i++) {
-      let highestNum = [];
-      if (arrayOfNums[i] > highestSum) {
-         highestNum.push(arrayOfNums[i]);
+// RETURN LARGEST NUMBER IN ARRAY
+
+function findLargestNumber(input) {
+   var array = [3, 6, 2, 56, 32, 5, 89, 32, input];
+   var largest = 0;
+   // loop through array
+   for (i = 0; i < array.length; i++) {
+      if (array[i] > largest) {
+         // if current index of array is greater than largest, largest = current index
+         var largest = array[i];
       }
-      return highestNum;
    }
+   return largest;
 }
 
 // CONFIRM LAST CHARACTER OF STRING
@@ -147,9 +150,15 @@ function titleCase(str) {
 
 // SLICE AND SPLICE
 function frankenSplice(arr1, arr2, n) {
+   // Input 1: Array of numbers
+   // Input 2: Array of Numbers to be put into Array 1
+   // Input 3: Index of where to splice the Array 1 and insert Input 2
+
+   let array1 = [arr1];
+   let array2 = [arr2];
    // takes 2 arrays and a number for the index you wish to splice the first array
-   let slicedArr = arr2.slice(); // creates a copy of array 2
-   slicedArr.splice(n, 0, ...arr1); // slices array 2 at the index of whatever user input for n, deletes 0 elements, then adds the input for the first array.
+   let slicedArr = array2.slice(); // creates a copy of array 2
+   slicedArr.splice(n, 0, ...array1); // slices array 2 at the index of whatever user input for n, deletes 0 elements, then adds the input for the first array.
    return slicedArr;
 }
 
@@ -163,17 +172,18 @@ function bouncer(arr) {
 
 // WHERE DO I BELONG
 function getIndexToIns(arr, num) {
+   let myArr = [arr];
    // sort array
    // the returned value should be the index#
    // push num into array, sort array, find index of pushed num, return index
    // https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677
-   arr.push(num); // push num into array
-   arr.sort(function (a, b) {
+   myArr.push(num); // push num into array
+   myArr.sort(function (a, b) {
       // sorts the array numerically
       return a - b;
    });
-   //   console.log(arr)
-   return arr.indexOf(num); // finds the index value of num and returns it
+
+   return myArr.indexOf(num); // finds the index value of num and returns it
 }
 
 // MUTATIONS
